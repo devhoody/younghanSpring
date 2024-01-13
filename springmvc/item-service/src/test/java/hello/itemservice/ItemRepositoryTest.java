@@ -33,21 +33,14 @@ public class ItemRepositoryTest {
         Item savedItem = repository.save(item);
 
         // then
-        assertThat("itemA").isEqualTo(savedItem.getName());
+        assertThat("itemA").isEqualTo(savedItem.getItemName());
     }
 
     @Test
     public void 상품목록(){
         //given
-        Item itemA = new Item();
-        itemA.setName("itemA");
-        itemA.setPrice(1000);
-        itemA.setQuentity(5);
-
-        Item itemB = new Item();
-        itemB.setName("itemB");
-        itemB.setPrice(5000);
-        itemB.setQuentity(10);
+        Item itemA = new Item("itemA", 1000, 5);
+        Item itemB = new Item("itemB", 5000, 10);
 
         repository.save(itemA);
         repository.save(itemB);
@@ -70,7 +63,7 @@ public class ItemRepositoryTest {
         Item detailItem = repository.findById(itemA.getId());
 
         //then
-        assertThat("itemA").isEqualTo(detailItem.getName());
+        assertThat("itemA").isEqualTo(detailItem.getItemName());
     }
 
     @Test
@@ -80,11 +73,11 @@ public class ItemRepositoryTest {
         repository.save(itemA);
 
         // when
-        itemA.setName("itemB");
+        itemA.setItemName("itemB");
         Item editedItem = repository.update(itemA.getId(), itemA);
 
         // then
-        assertThat("itemB").isEqualTo(editedItem.getName());
+        assertThat("itemB").isEqualTo(editedItem.getItemName());
     }
 
 

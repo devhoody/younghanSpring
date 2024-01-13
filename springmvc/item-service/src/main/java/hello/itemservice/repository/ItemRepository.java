@@ -32,9 +32,9 @@ public class ItemRepository {
 
     public Item update(Long itemId, Item updateParam) {
         Item findItem = findById(itemId);
-        findItem.setName(updateParam.getName());
+        findItem.setItemName(updateParam.getItemName());
         findItem.setPrice(updateParam.getPrice());
-        findItem.setQuentity(updateParam.getQuentity());
+        findItem.setQuantity(updateParam.getQuantity());
         return findItem;
     }
 
